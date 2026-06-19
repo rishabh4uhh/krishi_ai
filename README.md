@@ -1,90 +1,88 @@
 # Krishi-AI
 
-Krishi-AI is a web-based agricultural assistant designed to help users identify crop-related issues, receive weather-informed recommendations, and ask farming questions in multiple languages.
+Krishi-AI is a full-stack agricultural assistant that helps users identify crop issues, receive weather-informed guidance, and interact with an AI-powered farming chatbot.
 
 ## Project Overview
 
-The application combines several features that support smart agriculture:
+This project combines a frontend web interface with a backend API server. The frontend handles the user experience, while the backend securely manages AI requests to Gemini.
 
-- crop image analysis using AI
-- regional weather advisory
-- multilingual chat support
-- voice-based interaction for reading responses aloud
+## Features
 
-## Purpose
+- Crop image analysis for disease and issue detection
+- Weather-based advisory for selected regions
+- Multilingual support for English, Hindi, and Punjabi
+- Voice-based output and chat interaction
+- Backend API endpoints for diagnosis, chatbot responses, and advisories
 
-The goal of this project is to provide a simple and practical digital tool for farmers, students, and agricultural learners. It helps users understand crop conditions more quickly and supports better decision-making based on visual inspection and local weather information.
+## Tech Stack
 
-## Key Features
-
-### Crop Health Scanner
-
-Users can upload an image of a crop or leaf for AI-based analysis. The app provides information about the likely issue, severity level, and suggested remedies.
-
-### Weather Advisory
-
-The app includes weather details for selected regions such as Bhopal, Indore, and Jabalpur. These insights help users understand how local conditions may affect farming activities.
-
-### Agricultural Chat Assistant
-
-The built-in assistant can respond to questions related to soil preparation, crop cycles, disease prevention, fertilizer use, and other farming practices.
-
-### Voice Support
-
-The application supports text-to-speech output and voice input, making it easier for users to interact with the system.
-
-## Technology Stack
+### Frontend
 
 - HTML
 - CSS
 - JavaScript
-- Gemini API
-- Browser local storage for saving the API key
+
+### Backend
+
+- Node.js
+- Express.js
+- dotenv
+- CORS
+
+### AI Service
+
+- Google Gemini API
 
 ## Project Structure
 
-- `index.html` — main structure of the web application
-- `style.css` — styling and layout design
-- `app.js` — application logic, API calls, translations, and interactivity
+- `index.html` — frontend layout
+- `style.css` — frontend styling
+- `app.js` — frontend logic and UI interaction
+- `server.js` — backend API server
+- `package.json` — project scripts and dependencies
+- `.env.example` — environment variable template
 
-## How to Run
+## Setup Instructions
 
-### Option 1: Open the app directly
-
-Open `index.html` in a browser to run the project.
-
-### Option 2: Use a local server
-
-Run the following command:
+### 1. Install dependencies
 
 ```bash
-python -m http.server
+npm install
 ```
 
-Then open:
+### 2. Configure environment variables
+
+Create a `.env` file using `.env.example` and add your Gemini API key.
+
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+PORT=3000
+```
+
+### 3. Run the project
+
+```bash
+npm start
+```
+
+The application will be available at:
 
 ```text
-http://localhost:8000
+http://localhost:3000
 ```
 
-## API Configuration
+## API Endpoints
 
-To use the AI features, you need a valid Google Gemini API key.
-
-1. Open the application.
-2. Click the Settings button.
-3. Enter your API key.
-4. Save the settings.
-
-> The API key is stored locally in the browser.
+- `GET /api/health` — checks backend status
+- `POST /api/diagnose` — analyzes uploaded crop images
+- `POST /api/chat` — handles chatbot responses
+- `POST /api/advisory` — generates weather advisory text
 
 ## Notes
 
-- This project is intended for educational and demonstration purposes.
-- The quality of AI responses depends on the uploaded image, internet connection, and API availability.
-- Microphone access is required if voice input is used.
+- The browser no longer directly calls the Gemini API; all AI requests are routed through the backend.
+- This setup is suitable for learning, demonstration, and further extension into a real production application.
 
 ## License
 
-This project is provided for learning and demonstration purposes.
-# krishi_ai
+This project is intended for educational and demonstration purposes.
