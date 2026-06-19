@@ -87,3 +87,4 @@ To use the AI features, you need a valid Google Gemini API key.
 ## License
 
 This project is provided for learning and demonstration purposes.
+# krishi_ai
