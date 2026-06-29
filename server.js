@@ -22,7 +22,8 @@ app.get("/api/health", (req, res) => {
 
 app.post("/api/diagnose", async (req, res) => {
   try {
-    const { prompt, selectedImageBase64, selectedImageMimeType, apiKey } =
+
+      const { prompt, selectedImageBase64, selectedImageMimeType, apiKey } =
       req.body;
 
     const activeApiKey = apiKey || GEMINI_API_KEY;
